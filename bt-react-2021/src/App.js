@@ -1,5 +1,7 @@
-import './App.css';
+//import React library
+import React from 'react'
 
+// react f-n component
 function App() {
   return (
     <div className="App">
@@ -8,4 +10,5 @@ function App() {
   );
 }
 
+// export component
 export default App;

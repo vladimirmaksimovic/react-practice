@@ -7,7 +7,7 @@ function App() {
   // return JSX
   return (
     // JSX expression must have only one parent element
-    <div className="App">
+    <div className="container">
       <h1>React App</h1>
       <Header />
     </div>

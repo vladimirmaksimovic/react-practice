@@ -2,13 +2,21 @@
 import React from 'react'
 // import Prop Types library
 import PropTypes from 'prop-types'
+import Button from './Button'
 
 // react f-n component, without props object i.e. with destructuring
 const Header = ({ title }) => {
+const onClick = () => {
+  console.log('click')
+}
+
   // return JSX
   return (
-  <header style={{ color: 'teal', backgroundColor: '#d5e1df'}}> {/* inline styles */}
-    <h2 style={headingStyles}>{ title }</h2>
+  <header className='header'>
+    {/* <header style={{ color: 'teal', backgroundColor: '#d5e1df'}}> //inline styles */}
+    {/* <h2 style={headingStyles}>{ title }</h2> //passing style object */}
+    <h1>{title}</h1>
+      <Button color='green' text='Hello' onClick={ onClick }/>
   </header>
   )
 }
@@ -33,7 +41,7 @@ Header.propTypes = {
 }
 
 // style object
-const headingStyles = {
+/* const headingStyles = {
   width: '100%',
   height: '5rem',
   padding: '1rem',
@@ -41,8 +49,7 @@ const headingStyles = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center'
-  
-}
+} */
 
 // export component
 export default Header

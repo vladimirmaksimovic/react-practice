@@ -7,8 +7,8 @@ import PropTypes from 'prop-types'
 const Header = ({ title }) => {
   // return JSX
   return (
-  <header>
-    <h2>{ title }</h2>
+  <header style={{ color: 'teal', backgroundColor: '#d5e1df'}}> {/* inline styles */}
+    <h2 style={headingStyles}>{ title }</h2>
   </header>
   )
 }
@@ -30,6 +30,18 @@ Header.defaultProps = {
 // set prop Types
 Header.propTypes = {
   title: PropTypes.string,
+}
+
+// style object
+const headingStyles = {
+  width: '100%',
+  height: '5rem',
+  padding: '1rem',
+  fontSize: '1.4rem',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center'
+  
 }
 
 // export component

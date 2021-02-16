@@ -1,31 +1,15 @@
+// import React and useState libraries
 import React from 'react'
+import Task from './Task'
 
-// data array
-const tasks = [
-  {
-    id: 1,
-    text: 'Doctors Appointment',
-    day: 'Feb 5th at 2:30pm',
-    reminder: true,
-  },
-  {
-    id: 2,
-    text: 'Meeting st School',
-    day: 'Feb 6th at 1:30pm',
-    reminder: true,
-  },
-  {
-    id: 3,
-    text: 'Food Shopping',
-    day: 'Feb 5 at 2:30pm',
-    reminder: false,
-  },
-]
+const Tasks = ({tasks}) => {
+  
 
-const Tasks = () => {
   return (
     <div>
-
+      {tasks.map((task) => (
+        <Task key={task.id} task={task} />
+      ))}
     </div>
   )
 }

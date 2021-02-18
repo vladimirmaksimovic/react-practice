@@ -51,6 +51,12 @@ const [tasks, setTasks] = useState(
     setTasks(tasks.filter((task) => task.id !== id))
   }
 
+  // Toggle Reminder
+  const toggleReminder = (id) => {
+    //console.log(id)
+    setTasks(tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder} : task))
+  }
+
   // return JSX
   return (
     // JSX expression must have only one parent element
@@ -59,7 +65,7 @@ const [tasks, setTasks] = useState(
       <Header />
       {
         tasks.length > 0 ?
-        <Tasks tasks={tasks} onDelete={deleteTask} /> :
+        <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} /> :
         'No more tasks'
         }
     </div>

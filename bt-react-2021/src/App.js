@@ -11,7 +11,7 @@ function App() {
   /**
    * state should be used in the top-level component
    * so that it can be passed on to other components 
-  */
+   */
 
 // useState hook to use state in f-n component
 const [tasks, setTasks] = useState(
@@ -41,13 +41,27 @@ const [tasks, setTasks] = useState(
   ]
 )
 
+/**
+ * events are stored in top level component (App)
+ */
+
+  // Delete Task
+  const deleteTask = (id) => {
+    //console.log('delete', id)
+    setTasks(tasks.filter((task) => task.id !== id))
+  }
+
   // return JSX
   return (
     // JSX expression must have only one parent element
     <div className="container">
       <h1>React App</h1>
       <Header />
-      <Tasks tasks={tasks} />
+      {
+        tasks.length > 0 ?
+        <Tasks tasks={tasks} onDelete={deleteTask} /> :
+        'No more tasks'
+        }
     </div>
   );
 }

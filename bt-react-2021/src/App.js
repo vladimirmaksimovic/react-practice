@@ -4,6 +4,7 @@ import React from 'react'
 import { useState } from 'react'
 
 import Header from './components/Header';
+import AddTask from './components/AddTask';
 import Tasks from './components/Tasks';
 
 // react f-n component
@@ -45,6 +46,16 @@ const [tasks, setTasks] = useState(
  * events are stored in top level component (App)
  */
 
+  // Add Task
+  const addTask = (task) => {
+    //console.log(task)
+    // create random id
+    const id = Math.floor(Math.random() * 10000) + 1
+    console.log(id)
+    const newTask = { id, ...task }
+    setTasks([...tasks, newTask])
+  }
+
   // Delete Task
   const deleteTask = (id) => {
     //console.log('delete', id)
@@ -63,6 +74,7 @@ const [tasks, setTasks] = useState(
     <div className="container">
       <h1>React App</h1>
       <Header />
+      <AddTask onAdd={addTask} />
       {
         tasks.length > 0 ?
         <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} /> :

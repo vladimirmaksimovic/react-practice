@@ -5,10 +5,10 @@ import PropTypes from 'prop-types'
 import Button from './Button'
 
 // react f-n component, without props object i.e. with destructuring
-const Header = ({ title }) => {
-const onClick = () => {
+const Header = ({ title, onAdd, showAdd }) => {
+/* const onClick = () => {
   console.log('click')
-}
+} */
 
   // return JSX
   return (
@@ -16,7 +16,11 @@ const onClick = () => {
     {/* <header style={{ color: 'teal', backgroundColor: '#d5e1df'}}> //inline styles */}
     {/* <h2 style={headingStyles}>{ title }</h2> //passing style object */}
     <h1>{title}</h1>
-      <Button color='green' text='Hello' onClick={ onClick }/>
+      <Button
+        color={showAdd ? 'red' : 'green'}
+        text={showAdd ? 'Close' : 'Add'}
+        onClick={ onAdd }
+      />
   </header>
   )
 }

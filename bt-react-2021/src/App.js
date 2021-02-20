@@ -15,12 +15,12 @@ function App() {
    */
 
 // useState hook to use state in f-n component
+const [showAddTask, setShowAddTask] = useState(false)
+
 const [tasks, setTasks] = useState(
   // use setTasks method to change data in tasks array
   /* setTasks([...tasks //spread array, //add new properties to array]) */
-
-  // data array
-  [
+  [// data array
     {
       id: 1,
       text: 'Doctors Appointment',
@@ -73,8 +73,8 @@ const [tasks, setTasks] = useState(
     // JSX expression must have only one parent element
     <div className="container">
       <h1>React App</h1>
-      <Header />
-      <AddTask onAdd={addTask} />
+      <Header onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask} />
+      {showAddTask && <AddTask onAdd={addTask} />}
       {
         tasks.length > 0 ?
         <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} /> :

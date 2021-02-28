@@ -1,5 +1,5 @@
 // import React library
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 // f-n components / simple components
 const TableHeader = () => {
@@ -11,45 +11,44 @@ const TableHeader = () => {
         <th>Job</th>
       </tr>
     </thead>
-  )
-}
+  );
+};
 
-const TableBody = () => {
-  return (
-    <tbody>
-      <tr>
-        <td>Natasa</td>
-        <td>Sekretar</td>
+// table body component
+const TableBody = (props) => {
+  // map and store data from props array
+  // and return <tr> for each object in array
+  const employees = props.employeesData.map((employee, index) => {
+    return (
+      // always use key prop when rendering lists
+      <tr key={index}>
+        <td>{employee.name}</td>
+        <td>{employee.job}</td>
       </tr>
-      <tr>
-        <td>Branka</td>
-        <td>Racunovodja</td>
-      </tr>
-      <tr>
-        <td>Suza</td>
-        <td>Administracija</td>
-      </tr>
-      <tr>
-        <td>Dragana</td>
-        <td>Direktor</td>
-      </tr>
-    </tbody>
-  )
-}
+    );
+  });
+
+  // pass stored data variable
+  return <tbody>{employees}</tbody>;
+};
 
 // class component
 class Table extends Component {
   // render method
   render() {
+    // receive data from parent component with props
+    const { employeesData } = this.props;
+
     // return JSX
     return (
       // JSX
-      <table>
+      <table className='employees-table'>
         <TableHeader />
-        <TableBody />
+        {/* pass receieved data to child component */}
+        <TableBody employeesData={employeesData} />
       </table>
-    )
+    );
   }
 }
 
-export default Table
+export default Table;

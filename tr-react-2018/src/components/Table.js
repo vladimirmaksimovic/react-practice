@@ -1,5 +1,5 @@
 // import React library
-import React, { Component } from "react";
+import React from "react";
 
 // f-n components / simple components
 const TableHeader = () => {
@@ -24,6 +24,9 @@ const TableBody = (props) => {
       <tr key={index}>
         <td>{employee.name}</td>
         <td>{employee.job}</td>
+        <td>
+          <button onClick={() => props.removeEmployee(index)}>Delete</button>
+        </td>
       </tr>
     );
   });
@@ -33,7 +36,7 @@ const TableBody = (props) => {
 };
 
 // class component
-class Table extends Component {
+/* class Table extends Component {
   // render method
   render() {
     // receive data from parent component with props
@@ -44,11 +47,26 @@ class Table extends Component {
       // JSX
       <table className='employees-table'>
         <TableHeader />
-        {/* pass receieved data to child component */}
-        <TableBody employeesData={employeesData} />
+        /* pass receieved data to child component */
+/*<TableBody employeesData={employeesData} />
       </table>
     );
   }
-}
+} */
+
+// f-n component
+const Table = (props) => {
+  const { employeesData, removeEmployee } = props;
+
+  return (
+    <table className='employees-table'>
+      <TableHeader />
+      <TableBody
+        employeesData={employeesData}
+        removeEmployee={removeEmployee}
+      />
+    </table>
+  );
+};
 
 export default Table;

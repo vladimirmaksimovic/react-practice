@@ -46,3 +46,23 @@ td {
   background-color: teal;
   color: #f3f3f3;
 }
+
+.employees-table button {
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  background-color: teal;
+  color: #f3f3f3;
+  transition: ease-out 0.3s;
+}
+
+.employees-table button:hover {
+  background-color: #3d3d3d;
+  cursor: pointer;
+}
+
+.employees-table button:active {
+  transform: scale(92%);
+  background-color: red;
+}

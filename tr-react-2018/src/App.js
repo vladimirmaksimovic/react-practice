@@ -1,5 +1,6 @@
 // import React library
 import React from "react";
+import Form from "./components/Form";
 
 // import components in top level component "App"
 import Table from "./components/Table";
@@ -12,8 +13,9 @@ class App extends React.Component {
     super();
     // state object
     this.state = {
-      employees: [
-        {
+      // set empty array
+      employees: [],
+      /* {
           name: "Charlie",
           job: "Janitor",
         },
@@ -28,8 +30,7 @@ class App extends React.Component {
         {
           name: "Dennis",
           job: "Bartender",
-        },
-      ],
+        }, */
     };
     // bind event method
     this.removeEmployee = this.removeEmployee.bind(this);
@@ -47,6 +48,13 @@ class App extends React.Component {
     });
   };
 
+  // handle submit method
+  handleSubmit = (employee) => {
+    this.setState({
+      employees: [...this.state.employees, employee],
+    });
+  };
+
   // render method
   render() {
     // return JSX
@@ -57,6 +65,7 @@ class App extends React.Component {
           employeesData={this.state.employees}
           removeEmployee={this.removeEmployee}
         />
+        <Form handleSubmit={this.handleSubmit} />
       </div>
     );
   }

@@ -66,3 +66,41 @@ td {
   transform: scale(92%);
   background-color: red;
 }
+
+/* EMPLOYEE FORM COMPONENT */
+.employee-form {
+  width: 60%;
+  height: auto;
+  margin: auto;
+  padding: 1rem 0;
+  border-top: 1px solid green;
+  border-bottom: 1px solid green;
+  display: flex;
+  flex-direction: column;
+}
+
+.employee-form input[type="text"] {
+  margin: 0.25rem 0;
+  padding: 0.25rem;
+}
+
+.employee-form input[type="button"] {
+  margin: 0.5rem 0;
+  padding: 0.5rem 0;
+  border: none;
+  outline: none;
+  background-color: blue;
+  color: #f3f3f3;
+  transition: ease-out 0.5s;
+}
+
+.employee-form input[type="button"]:hover {
+  background-color: green;
+  cursor: pointer;
+}
+
+.employee-form input[type="button"]:active {
+  background-color: yellowgreen;
+  cursor: pointer;
+  transform: scale(99%);
+}

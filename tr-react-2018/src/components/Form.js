@@ -27,6 +27,7 @@ class Form extends React.Component {
   render() {
     return (
       <form className='employee-form'>
+        <h3>Add New Employee</h3>
         <label htmlFor='name'>Name</label>
         <input
           type='text'

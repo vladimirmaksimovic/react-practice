@@ -60,13 +60,16 @@ const Table = (props) => {
   const { employeesData, removeEmployee } = props;
 
   return (
-    <table className='employees-table'>
-      <TableHeader />
-      <TableBody
-        employeesData={employeesData}
-        removeEmployee={removeEmployee}
-      />
-    </table>
+    <div className='employees-container'>
+      <h3>Employee Record</h3>
+      <table className='employees-table'>
+        <TableHeader />
+        <TableBody
+          employeesData={employeesData}
+          removeEmployee={removeEmployee}
+        />
+      </table>
+    </div>
   );
 };
 

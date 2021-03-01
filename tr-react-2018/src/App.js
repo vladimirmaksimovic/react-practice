@@ -1,5 +1,6 @@
 // import React library
 import React from "react";
+import Api from "./components/Api";
 import Form from "./components/Form";
 
 // import components in top level component "App"
@@ -61,11 +62,12 @@ class App extends React.Component {
     return (
       // JSX
       <div>
+        <Form handleSubmit={this.handleSubmit} />
         <Table
           employeesData={this.state.employees}
           removeEmployee={this.removeEmployee}
         />
-        <Form handleSubmit={this.handleSubmit} />
+        <Api />
       </div>
     );
   }
